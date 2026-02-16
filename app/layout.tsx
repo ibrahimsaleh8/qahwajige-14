@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
-import { APP_URL, CurrentProjectId } from "@/lib/ProjectId";
+import { APP_URL, CurrentProjectId, currentURL } from "@/lib/ProjectId";
 import { StructuredData } from "@/components/StructuredData";
 import Script from "next/script";
 const cairoFont = Cairo({
@@ -63,7 +63,7 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       },
       alternates: {
-        canonical: process.env.NEXT_PUBLIC_APP_URL,
+        canonical: currentURL,
       },
     };
   } catch (error) {
@@ -96,7 +96,7 @@ export default async function RootLayout({
       </head>
       <body className={`${cairoFont.className} antialiased`}>
         {children}
-        {/* <Script id="clixtell-tracking" strategy="afterInteractive">
+        <Script id="clixtell-tracking" strategy="afterInteractive">
           {`
             var script = document.createElement('script');
             var prefix = document.location.protocol;
@@ -113,7 +113,7 @@ export default async function RootLayout({
             src="//tracker.clixtell.com/track/t.gif"
             alt="clixtell-tracker"
           />
-        </noscript> */}
+        </noscript>
       </body>
     </html>
   );
