@@ -8,12 +8,11 @@ import Link from "next/link";
 import { BsCupHotFill } from "react-icons/bs";
 
 const navLinks = [
-  { href: "#about", label: "عن قهوجي الرياض" },
-  { href: "#services", label: "خدماتنا المميزة" },
-  { href: "#packages", label: "باقاتنا الخاصة" },
-  { href: "#faq", label: "أسئلتكم الشائعة" },
-  { href: "#gallery", label: "صور وتجاربنا" },
-  { href: "#contact", label: "تواصل واحجز" },
+  { href: "/#about", label: "عن قهوجي الرياض" },
+  { href: "/#services", label: "خدماتنا المميزة" },
+  { href: "/#packages", label: "باقاتنا الخاصة" },
+  { href: "/articles", label: "مقالاتنا" },
+  { href: "/#contact", label: "تواصل واحجز" },
 ];
 export function Header({
   brandName,

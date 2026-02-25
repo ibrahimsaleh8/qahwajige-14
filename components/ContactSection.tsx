@@ -12,107 +12,111 @@ export default function ContactSection({
   whatsapp,
 }: FooterData & { whatsapp: string }) {
   return (
-    <section id="contact" className="py-20 relative overflow-hidden text-black">
-      <div className="container mx-auto px-4 relative z-10">
+    <section
+      id="contact"
+      className="relative overflow-hidden py-20 text-black">
+      <div className="relative z-10 container mx-auto px-4 space-y-12">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-card-background mb-4">
+        <div className="text-center">
+          <h2 className="mb-4 text-4xl md:text-5xl font-bold text-card-background">
             معلومات التواصل
           </h2>
-          <div className="w-24 h-1 bg-main-color mx-auto mb-6" />
-          <p className="text-low-color text-lg max-w-2xl mx-auto">
-            نحن هنا لخدمتكم والإجابة على جميع استفساراتكم. تواصل معنا عبر أي من
-            الوسائل التالية وسيسعد فريقنا بمساعدتك.{" "}
+          <div className="mx-auto mb-6 h-1 w-24 bg-main-color" />
+          <p className="mx-auto max-w-2xl text-lg text-low-color">
+            نحن هنا لخدمتكم والإجابة على جميع استفساراتكم. اختر وسيلة التواصل
+            الأنسب لك وسيسعد فريقنا بمساعدتك في تنسيق مناسبة مميزة.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
           {/* Contact Information */}
-          <div className="space-y-6 flex flex-col items-start gap-5">
+          <div className="flex flex-col gap-5 rounded-3xl border border-black/5 bg-white/90 p-6 shadow-sm">
             {/* Phone */}
-            <div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-main-color flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Phone className="w-6 h-6 text-black" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-black font-semibold mb-2">الهاتف</p>
-                  <a
-                    href={`tel:${phone}`}
-                    target="_blank"
-                    className="text-low-color font-medium hover:text-main-color transition-colors duration-300 text-lg"
-                    dir="ltr">
-                    {phone}
-                  </a>
-                </div>
+            <div className="flex items-start gap-4 rounded-2xl border border-black/5 bg-main-color/5 p-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-main-color transition-transform duration-300">
+                <Phone className="h-6 w-6 text-black" />
+              </div>
+              <div className="flex-1">
+                <p className="mb-1 font-semibold text-black">الهاتف</p>
+                <a
+                  href={`tel:${phone}`}
+                  target="_blank"
+                  className="text-lg font-medium text-low-color transition-colors duration-300 hover:text-main-color"
+                  dir="ltr">
+                  {phone}
+                </a>
+                <p className="mt-1 text-xs text-low-color">
+                  متاح للتواصل والاستفسارات بشكل مباشر.
+                </p>
               </div>
             </div>
 
             {/* Whatsapp */}
-            <div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-main-color flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <MessageCircle className="w-6 h-6 text-black" />
-                </div>
-                <div className="flex-1">
-                  <p className="font-semibold mb-2">واتساب</p>
-                  <a
-                    href={`https://wa.me/${
-                      whatsapp.includes("+")
-                        ? whatsapp.split("+").join("")
-                        : whatsapp
-                    }?text=`}
-                    target="_blank"
-                    className="text-low-color font-medium hover:text-main-color transition-colors duration-300 text-lg"
-                    dir="ltr">
-                    {whatsapp}
-                  </a>
-                </div>
+            <div className="flex items-start gap-4 rounded-2xl border border-black/5 bg-main-color/5 p-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-main-color transition-transform duration-300">
+                <MessageCircle className="h-6 w-6 text-black" />
+              </div>
+              <div className="flex-1">
+                <p className="mb-1 font-semibold">واتساب</p>
+                <a
+                  href={`https://wa.me/${
+                    whatsapp.includes("+")
+                      ? whatsapp.split("+").join("")
+                      : whatsapp
+                  }?text=`}
+                  target="_blank"
+                  className="text-lg font-medium text-low-color transition-colors duration-300 hover:text-main-color"
+                  dir="ltr">
+                  {whatsapp}
+                </a>
+                <p className="mt-1 text-xs text-low-color">
+                  للحجوزات السريعة وإرسال تفاصيل المناسبة.
+                </p>
               </div>
             </div>
 
             {/* Email */}
-            <div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-main-color flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="w-6 h-6 text-black" />
-                </div>
-                <div className="flex-1">
-                  <p className="font-semibold mb-2">البريد الإلكتروني</p>
-                  <a
-                    target="_blank"
-                    href={`mailto:${email}`}
-                    className="text-low-color hover:text-main-color font-medium transition-colors duration-300 break-all">
-                    {email}
-                  </a>
-                </div>
+            <div className="flex items-start gap-4 rounded-2xl border border-black/5 bg-main-color/5 p-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-main-color transition-transform duration-300">
+                <Mail className="h-6 w-6 text-black" />
+              </div>
+              <div className="flex-1">
+                <p className="mb-1 font-semibold">البريد الإلكتروني</p>
+                <a
+                  target="_blank"
+                  href={`mailto:${email}`}
+                  className="break-all font-medium text-low-color transition-colors duration-300 hover:text-main-color">
+                  {email}
+                </a>
+                <p className="mt-1 text-xs text-low-color">
+                  مناسب للمراسلات الرسمية وتأكيد التفاصيل المكتوبة.
+                </p>
               </div>
             </div>
 
             {/* Address */}
-            <div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-main-color flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <MapPin className="w-6 h-6 text-black" />
-                </div>
-                <div className="flex-1">
-                  <p className="font-semibold mb-2">العنوان</p>
-                  <p className="text-low-color text-sm font-medium leading-relaxed">
-                    {address}
-                  </p>
-                </div>
+            <div className="flex items-start gap-4 rounded-2xl border border-black/5 bg-main-color/5 p-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-main-color transition-transform duration-300">
+                <MapPin className="h-6 w-6 text-black" />
+              </div>
+              <div className="flex-1">
+                <p className="mb-1 font-semibold">العنوان</p>
+                <p className="text-sm font-medium leading-relaxed text-low-color">
+                  {address}
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="w-full aspect-auto min-h-55 bg-slate-800">
+          {/* Map */}
+          <div className="min-h-55 w-full overflow-hidden rounded-3xl border border-black/5 bg-slate-800">
             <iframe
               src={mapEmbedSrc}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="موقع قهوجيين الرياض على الخريطة"
-              className="w-full h-full border-0"
+              className="h-full w-full border-0"
             />
           </div>
         </div>

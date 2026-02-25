@@ -1,18 +1,15 @@
-// app/page.tsx
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
-import Footer from "@/components/Footer";
 import { GallerySection } from "@/components/GallerySection";
-import { Header } from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import PremiumPackagesSection from "@/components/PremiumPackagesSection";
 import { APP_URL, CurrentProjectId } from "@/lib/ProjectId";
 import { ProjectContentResponse } from "@/lib/responseType";
-import FloatedIcons from "@/components/FloatedIcons";
 import RatingSection from "@/components/RatingSection";
 import Link from "next/link";
+import PreventCopy from "@/components/PreventCopy";
 
 export default async function HomePage() {
   let data;
@@ -44,9 +41,8 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden container mx-auto border-2 border-black text-white">
-      <Header brandName={data.header.brandName} telephone={data.footer.phone} />
-      <HeroSection {...data.hero} image={data.about.image ?? ""} />
+    <main className="min-h-screen overflow-x-hidden container mx-auto border-2 border-black text-white">
+      <HeroSection {...data.hero} image={data.gallery[0].url ?? ""} />
       <AboutSection {...data.about} features={data.whyUs.features} />
       <div className="p-20 flex flex-col gap-10 items-center font-bold justify-center text-center bg-main-color text-black text-4xl border-y-2 border-black">
         <p>{data.whyUs.description ?? ""}</p>
@@ -69,12 +65,8 @@ export default async function HomePage() {
 
       <FAQSection />
       <GallerySection gallery={data.gallery} />
-      <FloatedIcons
-        telephone={data.footer.phone ?? ""}
-        whatsapp={data.hero?.whatsApp ?? ""}
-      />
+      <PreventCopy />
       <ContactSection {...data.footer} whatsapp={data.hero?.whatsApp ?? ""} />
-      <Footer {...data.footer} description={data.hero?.subheadline} />
-    </div>
+    </main>
   );
 }

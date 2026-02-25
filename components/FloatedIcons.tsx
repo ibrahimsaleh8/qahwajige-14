@@ -21,7 +21,7 @@ export default function FloatedIcons({
   telephone: string;
 }) {
   return (
-    <div className="fixed z-10 left-4 bottom-4 flex flex-col gap-3">
+    <div className="fixed z-40 left-4 bottom-4 flex flex-col gap-3">
       <motion.a
         aria-label="whatsapp"
         target="_blank"
