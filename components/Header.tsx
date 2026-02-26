@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/#about", label: "عن قهوجي الرياض" },
   { href: "/#services", label: "خدماتنا المميزة" },
   { href: "/#packages", label: "باقاتنا الخاصة" },
-  { href: "/articles", label: "مقالاتنا" },
+  { href: "/articles", label: "خدمات الضيافة" },
   { href: "/#contact", label: "تواصل واحجز" },
 ];
 export function Header({
